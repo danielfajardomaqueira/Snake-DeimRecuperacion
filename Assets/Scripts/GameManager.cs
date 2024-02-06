@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 
     private LevelGrid levelGrid;
     private Snake snake;
+    //private HandleGridMovement handleGridMovement;
     
 
     private bool isPaused;
@@ -30,11 +31,18 @@ public class GameManager : MonoBehaviour
         SpriteRenderer snakeSpriteRenderer = snakeHeadGameObject.AddComponent<SpriteRenderer>();
         snakeSpriteRenderer.sprite = GameAssets.Instance.snakeHeadSprite;
         snake = snakeHeadGameObject.AddComponent<Snake>();
+        //handleGridMovement = snakeHeadGameObject.AddComponent<HandleGridMovement>();
         
         // Configurar el LevelGrid
         levelGrid = new LevelGrid(20, 20);
         snake.Setup(levelGrid);
         levelGrid.Setup(snake);
+
+        /*
+        //Lineas para hacer referencia a la funcion del script HandleGridMovement
+        snake.Setup(handleGridMovement);
+        handleGridMovement.Setup(snake);
+        */
 
         // Inicializo tema score
         Score.InitializeStaticScore();

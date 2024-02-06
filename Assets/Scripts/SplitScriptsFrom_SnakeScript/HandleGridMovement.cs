@@ -78,4 +78,12 @@ public class HandleGridMovement : MonoBehaviour
             snakeScript.UpdateBodyParts();
         }
     }
+
+
+    //SetUp para conectar los script Snake a HandleGridMovement
+    /*
+    public void Setup(Snake snake) {
+        this.snakeScript = snake;
+    }
+    */
 }

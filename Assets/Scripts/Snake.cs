@@ -126,7 +126,7 @@ public class Snake : MonoBehaviour
 
     public State state;
 
-    public HandleGridMovement handleGridMovementScript;
+    //public HandleGridMovement handleGridMovementScript;
     
     #endregion
     
@@ -151,7 +151,7 @@ public class Snake : MonoBehaviour
         {
             case State.Alive:
                 HandleMoveDirection();
-                handleGridMovementScript.HandleGridMovementSnake();
+                HandleGridMovement();
 
 
                 break;
@@ -165,7 +165,18 @@ public class Snake : MonoBehaviour
         // levelGrid de snake = levelGrid que viene por parámetro
         this.levelGrid = levelGrid;
     }
+
+
+    
+    //SetUp para conectar los script HandleGridMovement a Snake
     /*
+    public void Setup(HandleGridMovement handleGridMovement)
+    {
+       
+        this.handleGridMovementScript = handleGridMovement;
+    }
+    */
+    
     private void HandleGridMovement() // Relativo al movimiento en 2D
     {
         gridMoveTimer += Time.deltaTime;
@@ -237,7 +248,7 @@ public class Snake : MonoBehaviour
             UpdateBodyParts();
         }
     }
-    */
+    
     private void HandleMoveDirection()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
